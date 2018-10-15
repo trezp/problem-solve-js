@@ -1,3 +1,7 @@
+body {
+  font-family: 'Niramit', sans-serif;
+}
+
 ul {
   list-style-type: none;
   padding-left: 0;
@@ -8,6 +12,16 @@ li {
   padding: 30px;
   background: lightgray;
   margin: 5px;
+  width: 20%;
+}
+
+h2 {
+  text-align: center;
+}
+img {
+  width: 100%; 
+  display: block; 
+  margin: auto;
 }
 .container {
   padding: 30px;
