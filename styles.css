@@ -1,0 +1,15 @@
+ul {
+  list-style-type: none;
+  padding-left: 0;
+  display: flex; 
+}
+
+li {
+  padding: 30px;
+  background: lightgray;
+  margin: 5px;
+}
+.container {
+  padding: 30px;
+  margin: 0 auto;
+}
