@@ -6,13 +6,14 @@ ul {
   list-style-type: none;
   padding-left: 0;
   display: flex; 
+  flex-wrap: wrap;
 }
 
 li {
-  padding: 30px;
+  padding: 15px;
   background: lightgray;
   margin: 5px;
-  width: 20%;
+  flex-basis: 20%;
 }
 
 h2 {
@@ -24,6 +25,6 @@ img {
   margin: auto;
 }
 .container {
-  padding: 30px;
+  padding: 20pxß;
   margin: 0 auto;
 }

@@ -11,29 +11,14 @@
 <body>
   <div class="container">
     <h1>Amazing cat list</h1>
-    <ul class="cat-list">
-      <li>
-        <img src="http://placekitten.com/400/400" alt="Placeholder image of kitten">
-        <h2>Homer</h2>
-        <p><span>American Shorthair</span></p>
-      </li>
-      <li>
-        <img src="http://placekitten.com/400/400" alt="Placeholder image of kitten">
-        <h2>William</h2>
-        <p><span>Tuxedo</span></p>
-      </li>
-      <li>
-        <img src="http://placekitten.com/400/400" alt="Placeholder image of kitten">
-        <h2>Henri</h2>
-        <p><span>Ragdoll</span></p>
-      </li>
-      <li>
-        <img src="http://placekitten.com/400/400" alt="Placeholder image of kitten">
-        <h2>Mr. Bigface</h2>
-        <p><span>Russian Blue</span></p>
-      </li>
-    </ul>
+    <div id="filters">
+      <button data-color="black">Black Cats</button>
+      <button data-color="white">White Cats</button>
+      <button data-color="tuxedo">Tuxedo Cats</button>
+    </div>
+    <ul class="cat-list"></ul>
   </div>
+  <script src="catlist.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
