@@ -1,31 +1,4 @@
-// We're going to use cats, but this could literally be anything
-  // think about all the stuff on the internet you encounter as a list
-    // shopping on Amazon 
-    // your email inbox 
-    // your Instagram feed
-    // your Twitter feed
-    // Yelp reviews
-      // the list goes on and on! 
-// a way to search for cats 
-  // what do we need the user to do? 
-    // tell us which cat they're searching for 
-      // with a form 
-        // a form field
-        // a button to send the form  
-  // what do we need to do behind the scenes? 
-    // know what the user is searching for 
-      // get the information from the form 
-    // know what the user is searching 
-      // a list of cats 
-        // get the list of cats from the HTML 
-          // what the user is searching will come from many sources, but the main idea
-          // is that we need to have access to the information being searched
-    // now we have cats to search and we know which cat or cats the user is searching for
-        // compare the two pieces of information. 
-        // if the informatiom matches, show the user the correct cat!
 
-// a way to categorize cats by breed 
-// a way to view of a larger photo of a cat 
 
 const catUL = document.querySelector('ul');
 
@@ -100,9 +73,46 @@ printArray(cats);
     // make the buttons in the HTML
  const filters = document.getElementById('filters'); 
 
- filters.addEventListener("click", (event)=>{
+ filters.addEventListener("click", (event) =>{
   let colorOfCat = event.target.dataset.color;
   let correctCatArray = filterCatBy("color", colorOfCat);
-  console.log(correctCatArray)
   printArray(correctCatArray);
- })
+ });
+
+ // go back to showing all cats 
+ filters.addEventListener("click", (event) =>{
+  let colorOfCat = event.target.dataset.color;
+
+  if (colorOfCat == ""){
+    printArray(cats);
+  } else {
+    let correctCatArray = filterCatBy("color", colorOfCat);
+    printArray(correctCatArray);
+  }
+ });
+
+// Searching cats 
+// Let's think about what a search does. When we search, we: 
+ // Type that information into a search bar 
+ // The computer takes that information and does something with it 
+ // And gives us back what we searched for (hopefully)
+
+// Now that we're programming, let's try to fill in the blanks 
+ // The user types the information they're searching for into the search bar 
+ // We take what the user has typed and compare that information to the data we have 
+ // We return to the user only the information that matches that data 
+ // What do we need to get the information that the user is searching for? 
+  // a form --> make an input field 
+  // how do we get that information? 
+  // first select the input in JS 
+  const inputField = document.querySelector('input'); 
+  const searchButton = document.getElementById('search')
+  
+  search.addEventListener("click", (event)=> {
+    event.preventDefault();
+    const newArray = filterCatBy("name", inputField.value);
+    printArray(newArray);
+    // What if the user doesn't use caps? 
+    // What about spaces and stuff? <-- GOOGLE THESE FOR ANSWERS
+  });
+  
