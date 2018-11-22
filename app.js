@@ -1,10 +1,12 @@
 const gallery = document.getElementById('gallery');
 const menus = document.querySelector('#menus select'); 
-
-let inputField = document.querySelector('input'); 
+const inputField = document.querySelector('input'); 
 const search = document.getElementById('search')
 
-// filter cats by color
+/**
+ * Filter Cats by Color
+ * @param {string} value - 
+ */
 function filterCatBy(value){
   const filteredCats = [];
     for (let i = 0; i < cats.length; i++) {
@@ -14,9 +16,12 @@ function filterCatBy(value){
     }
   return filteredCats
 }
-
-// Search cats 
-// EXCEEDS ==> search by any property
+ 
+/**
+ * Filter cat by search term
+ * EXCEEDS ==> search by any property
+ * @param {string} searchTerm 
+ */
 function catSearch(searchTerm){
   const filteredCats = [];
   for (let i = 0; i < cats.length; i++) {
@@ -27,7 +32,10 @@ function catSearch(searchTerm){
   return filteredCats
 }
 
-// Display cats
+/**
+ * Takes in an array and displays to page
+ * @param {array} arr 
+ */
 function populateGallery(arr){
   gallery.innerHTML = '';
   for (let i = 0; i < arr.length; i++) {
@@ -44,7 +52,7 @@ function populateGallery(arr){
 }
 
 menus.addEventListener("change", (event) =>{
-   let colorOfCat = menus.value;
+  let colorOfCat = menus.value;
   let correctCatArray = filterCatBy(colorOfCat);
 
   if (colorOfCat == "all") {
