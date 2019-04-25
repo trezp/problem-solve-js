@@ -1,43 +1,49 @@
-const gallery = document.getElementById('gallery');
-const menus = document.querySelector('#menus select'); 
-const inputField = document.querySelector('input'); 
-const search = document.getElementById('search')
+const gallery = document.getElementById("gallery");
+const menus = document.querySelector("#menus select");
+const inputField = document.querySelector("input");
+const search = document.getElementById("search");
 
 /**
- * Filter Cats by Color
- * @param {string} value - 
+ * Filter Cats by Colors
+ * EXCEEDS ==> filter by any property
+ * @param {string} value -
  */
-function filterCatBy(value){
-  const filteredCats = [];
-    for (let i = 0; i < cats.length; i++) {
-      if(cats[i].color === value){
-        filteredCats.push(cats[i]); 
-      } 
-    }
-  return filteredCats
-}
- 
-/**
- * Filter cat by search term
- * EXCEEDS ==> search by any property
- * @param {string} searchTerm 
- */
-function catSearch(searchTerm){
+function filterCatBy(property) {
   const filteredCats = [];
   for (let i = 0; i < cats.length; i++) {
-    if(cats[i].name.toLowerCase().trim().includes(searchTerm.toLowerCase().trim())){
-      filteredCats.push(cats[i]); 
-    } 
+    if (cats[i].color === property) {
+      filteredCats.push(cats[i]);
+    }
   }
-  return filteredCats
+  return filteredCats;
+}
+
+/**
+ * Search for cats by name
+ * EXCEEDS ==> search by any property
+ * @param {string} searchTerm
+ */
+function catSearch(searchTerm) {
+  const filteredCats = [];
+  for (let i = 0; i < cats.length; i++) {
+    if (
+      cats[i].name
+        .toLowerCase()
+        .trim()
+        .includes(searchTerm.toLowerCase().trim())
+    ) {
+      filteredCats.push(cats[i]);
+    }
+  }
+  return filteredCats;
 }
 
 /**
  * Takes in an array and displays to page
- * @param {array} arr 
+ * @param {array} arr
  */
-function populateGallery(arr){
-  gallery.innerHTML = '';
+function populateGallery(arr) {
+  gallery.innerHTML = "";
   for (let i = 0; i < arr.length; i++) {
     gallery.innerHTML += `
       <li>
@@ -47,11 +53,13 @@ function populateGallery(arr){
         <p>Breed: ${arr[i].breed}</p>
         <p>Color: ${arr[i].color}</p>
       </li>
-    `
+    `;
   }
 }
 
-menus.addEventListener("change", (event) =>{
+// On select menu change, passes current value of select menu item (white, black, or tuxedo)
+// to filterCatBy function
+menus.addEventListener("change", event => {
   let colorOfCat = menus.value;
   let correctCatArray = filterCatBy(colorOfCat);
 
@@ -60,10 +68,10 @@ menus.addEventListener("change", (event) =>{
   } else {
     populateGallery(correctCatArray);
   }
+});
 
- });
-
-search.addEventListener("keyup", (event)=> {
+// on keyup, pass search term to catSearch function and populate gallery
+search.addEventListener("keyup", event => {
   const newArray = catSearch(inputField.value);
   populateGallery(newArray);
 });
